@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGE SLIDER</title>
+</head>
+<body>
+    <style>
+    body {
+        background-color: aqua;
+    }
+
+    .heading{
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+        font-family:cursive;
+        margin-top: 0px;
+    }
+
+    .main-container{
+        border: 5px solid blueviolet;
+        width: fit-content;
+        height:450px;
+        padding: 50px;
+        padding-top: 40px;
+        margin: 20px auto;
+        border-radius: 20px;
+    }
+
+    .container {
+        width: fit-content;
+        margin: 10px auto;
+        position: relative;
+    }
+
+    .image {
+        height: 300px;
+        width: 500px;
+        display: block;
+        margin: 50px auto;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    .icon-action {
+        height: 60px;
+        position: absolute;
+        top: 40%;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .icon-left {
+        left: 0;
+    }
+
+    .icon-left:hover {
+        transform: scale(0.8) translateX(-10px);
+    }
+
+    .icon-right {
+        right: 0;
+    }
+
+    .icon-right:hover {
+        transform: scale(0.8) translateX(10px);
+    }
+   
+</style>
+</head>
+
+<body>
+<div class="main-container">
+
+<h1 class="heading">Image Slider</h1>
+
+<div class="container">
+    <img src="./images/fish.jpg" class="image" id="slide">
+    <img src="./images/next-l.png" class="icon-action icon-left" onclick="back()" />
+    <img src="./images/next-r.png" class="icon-action icon-right" onclick="next()" />
+</div>
+</div>
+
+<script>
+    const images = ["./images/fish-1.jpg", "./images/fish-2.jpg", "./images/fish-3.jpg", "./images/fish-4.jpg", "./images/fish-5.jpg","./images/fish-6.jpg"];
+    let index = 0;
+    const slide = document.getElementById('slide');
+
+
+    function next() {
+        if (index < images.length - 1) {
+            index++;
+        }
+        else {
+            index = 0;
+        }
+
+        slide.src = images[index]
+    }
+
+    function back() {
+        if (index > 0) {
+            index--;
+        }
+        else {
+            index = images.length - 1;
+        }
+        slide.src = images[index]
+    }
+
+  
+
+</script>
+</body>
+</html>
